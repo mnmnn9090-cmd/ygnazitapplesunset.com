@@ -150,10 +150,11 @@
     }
 
     .nav-links a {
-      font-family: var(--font-serif);
-      font-size: 0.88rem;
+      font-family: var(--font-sans);
+      font-size: 0.95rem;
+      font-weight: 700;
       color: var(--charcoal);
-      letter-spacing: 0.06em;
+      letter-spacing: 0.03em;
       position: relative;
       padding-bottom: 3px;
     }
@@ -1164,6 +1165,23 @@
         onmouseover="this.style.background='#2e4028'"
         onmouseout="this.style.background='var(--forest)'"
       >📍 길찾기</button>
+
+      <a
+        href="https://map.naver.com/p/entry/place/1502493535?lng=128.4476184&lat=37.5688559&placePath=%2Froom%3F&entry=plt&searchType=place&c=15.00,0,0,0,dh"
+        target="_blank"
+        rel="noopener"
+        style="
+          display:inline-flex; align-items:center; gap:5px;
+          background:var(--rust); color:#fff;
+          font-family:var(--font-serif); font-size:0.72rem;
+          font-weight:700; letter-spacing:0.06em;
+          padding:6px 12px; border-radius:20px;
+          text-decoration:none; white-space:nowrap;
+          transition:background 0.2s;
+        "
+        onmouseover="this.style.background='var(--brown)'"
+        onmouseout="this.style.background='var(--rust)'"
+      >🏡 민박 예약</a>
     </div>
 
     <ul class="nav-links" id="navLinks">
@@ -1172,7 +1190,6 @@
       <li><a href="#cafe">카페·과수원</a></li>
       <li><a href="#sns">SNS</a></li>
       <li><a href="#location">오시는 길</a></li>
-      <li><a href="#booking" class="nav-reserve">민박 예약</a></li>
     </ul>
 
     <button class="nav-toggle" id="navToggle" aria-label="메뉴 열기">
@@ -1364,7 +1381,7 @@
 
       <div class="about-text">
         <span class="tag">Our Story</span>
-        <h2 class="section-title">귀농 8년 차 어설픈농부 정용권,<br>1년 차 더 어설픈농부 정현준</h2>
+        <h2 class="section-title">귀농 8년 차 어설픈농부 정용권,<br>1년 차 더 어설픈농부<br>정현준</h2>
         <p class="section-sub" style="margin-top:16px;">
           강원도 평창군 용평면 궁항동길에 자리 잡은 지 어느새 8년.
           처음엔 작은 텃밭으로 시작했지만, 지금은 동네 어르신들과 함께 가꾸는 작은 공동체가 됐습니다.
@@ -1484,98 +1501,6 @@
           📸 인스타그램 / 유튜브 / 네이버 블로그 운영 중
         </div>
       </div>
-    </div>
-  </div>
-</section>
-
-<!-- ★ 민박 예약 -->
-<section class="booking" id="booking">
-  <div class="section-wrap">
-    <div class="booking-grid">
-
-      <div class="booking-info">
-        <span class="tag" style="border-color:rgba(201,169,110,0.5); color:var(--warm-tan);">Pension Booking</span>
-        <h2 class="section-title">민박 예약 문의</h2>
-        <p class="section-sub">
-          오른쪽 폼으로 문의를 남겨주시면<br>
-          확인 후 24시간 이내에 연락드립니다.
-        </p>
-
-        <div class="booking-detail">
-          <div class="booking-item">
-            <span class="icon">📍</span>
-            <div>
-              <strong>위치</strong>
-              강원도 평창군 용평면 궁항동길 156-43 (용구니아지트)
-            </div>
-          </div>
-          <div class="booking-item">
-            <span class="icon">📞</span>
-            <div>
-              <strong>전화 문의</strong>
-              010-8998-5857 (오전 9시 ~ 오후 8시)
-            </div>
-          </div>
-          <div class="booking-item">
-            <span class="icon">✉️</span>
-            <div>
-              <strong>이메일</strong>
-              mnmnn9090@gmail.com
-            </div>
-          </div>
-          <div class="booking-item">
-            <span class="icon">🚗</span>
-            <div>
-              <strong>교통</strong>
-              서울에서 자동차 약 2시간 / 평창IC 이용<br>
-              <span style="color:var(--warm-tan); font-size:0.82rem;">🅿️ 주차 공간 넉넉합니다 — 무료</span>
-            </div>
-          </div>
-          <div class="booking-item">
-            <span class="icon">🌐</span>
-            <div>
-              <strong>공식 웹사이트</strong>
-              ygnazitapplesunset.com
-            </div>
-          </div>
-        </div>
-
-      </div>
-
-      <div class="booking-form">
-
-        <!-- 네이버 예약 버튼 -->
-        <a
-          href="https://map.naver.com/p/entry/place/1502493535?lng=128.4476184&lat=37.5688559&placePath=%2Froom%3F&entry=plt&searchType=place&c=15.00,0,0,0,dh"
-          target="_blank"
-          rel="noopener"
-          class="naver-reserve-btn"
-        >
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="flex-shrink:0">
-            <path d="M16.273 12.845L7.376 0H0v24h7.727V11.155L16.624 24H24V0h-7.727z" fill="#fff"/>
-          </svg>
-          네이버로 객실 예약하기
-        </a>
-
-        <div class="booking-divider">
-          <span>전화로 바로 문의하세요</span>
-        </div>
-
-        <div style="text-align:center; padding: 28px 0;">
-          <a href="tel:010-8998-5857" style="
-            display:inline-flex; align-items:center; gap:10px;
-            font-family:var(--font-serif); font-size:1.4rem; font-weight:700;
-            color:var(--warm-tan); letter-spacing:0.05em;
-            text-decoration:none;">
-            📞 010-8998-5857
-          </a>
-          <p style="font-size:0.78rem; color:rgba(237,229,208,0.5); margin-top:10px;">
-            오전 9시 ~ 오후 8시 운영
-          </p>
-        </div>
-
-      </div><!-- /booking-form -->
-
     </div>
   </div>
 </section>
@@ -1702,6 +1627,98 @@
   </div><!-- /section-wrap -->
 </section><!-- /map-section -->
 
+<!-- ★ 민박 예약 -->
+<section class="booking" id="booking">
+  <div class="section-wrap">
+    <div class="booking-grid">
+
+      <div class="booking-info">
+        <span class="tag" style="border-color:rgba(201,169,110,0.5); color:var(--warm-tan);">Pension Booking</span>
+        <h2 class="section-title">민박 예약 문의</h2>
+        <p class="section-sub">
+          오른쪽 폼으로 문의를 남겨주시면<br>
+          확인 후 24시간 이내에 연락드립니다.
+        </p>
+
+        <div class="booking-detail">
+          <div class="booking-item">
+            <span class="icon">📍</span>
+            <div>
+              <strong>위치</strong>
+              강원도 평창군 용평면 궁항동길 156-43 (용구니아지트)
+            </div>
+          </div>
+          <div class="booking-item">
+            <span class="icon">📞</span>
+            <div>
+              <strong>전화 문의</strong>
+              010-8998-5857 (오전 9시 ~ 오후 8시)
+            </div>
+          </div>
+          <div class="booking-item">
+            <span class="icon">✉️</span>
+            <div>
+              <strong>이메일</strong>
+              ygnazitapplesunset@gmail.com
+            </div>
+          </div>
+          <div class="booking-item">
+            <span class="icon">🚗</span>
+            <div>
+              <strong>교통</strong>
+              서울에서 자동차 약 2시간 / 평창IC 이용<br>
+              <span style="color:var(--warm-tan); font-size:0.82rem;">🅿️ 주차 공간 넉넉합니다 — 무료</span>
+            </div>
+          </div>
+          <div class="booking-item">
+            <span class="icon">🌐</span>
+            <div>
+              <strong>공식 웹사이트</strong>
+              ygnazitapplesunset.com
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="booking-form">
+
+        <!-- 네이버 예약 버튼 -->
+        <a
+          href="https://map.naver.com/p/entry/place/1502493535?lng=128.4476184&lat=37.5688559&placePath=%2Froom%3F&entry=plt&searchType=place&c=15.00,0,0,0,dh"
+          target="_blank"
+          rel="noopener"
+          class="naver-reserve-btn"
+        >
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="flex-shrink:0">
+            <path d="M16.273 12.845L7.376 0H0v24h7.727V11.155L16.624 24H24V0h-7.727z" fill="#fff"/>
+          </svg>
+          네이버로 객실 예약하기
+        </a>
+
+        <div class="booking-divider">
+          <span>전화로 바로 문의하세요</span>
+        </div>
+
+        <div style="text-align:center; padding: 28px 0;">
+          <a href="tel:010-8998-5857" style="
+            display:inline-flex; align-items:center; gap:10px;
+            font-family:var(--font-serif); font-size:1.4rem; font-weight:700;
+            color:var(--warm-tan); letter-spacing:0.05em;
+            text-decoration:none;">
+            📞 010-8998-5857
+          </a>
+          <p style="font-size:0.78rem; color:rgba(237,229,208,0.5); margin-top:10px;">
+            오전 9시 ~ 오후 8시 운영
+          </p>
+        </div>
+
+      </div><!-- /booking-form -->
+
+    </div>
+  </div>
+</section>
+
 <!-- ★ 푸터 -->
 <footer>
   <div class="footer-inner">
@@ -1734,7 +1751,7 @@
     <span>
       📞 <a href="tel:010-8998-5857">010-8998-5857</a>
       &nbsp;·&nbsp;
-      ✉️ <a href="mailto:mnmnn9090@gmail.com">mnmnn9090@gmail.com</a>
+      ✉️ <a href="mailto:ygnazitapplesunset@gmail.com">ygnazitapplesunset@gmail.com</a>
     </span>
   </div>
 </footer>
