@@ -1811,86 +1811,48 @@
    *  구글 시트를 "웹에 게시 > CSV"로 공개 후 아래 SHEET_ID 교체
    *  시트 구조: A열=체크인(YYYY-MM-DD)  B열=체크아웃(YYYY-MM-DD)
    * ──────────────────────────────────────────────────────────── */
-  /* ── 봄 슬라이드쇼 ───────────────────────── */
+  /* ── 통합 슬라이드쇼 (4섹션 동시 전환) ──────── */
   (function () {
-    const slides = Array.from(document.querySelectorAll('.spring-slide'));
-    const dots   = Array.from(document.querySelectorAll('.spring-dot'));
-    if (!slides.length) return;
-    let cur = 0, timer;
-    function goTo(n) {
-      slides[cur].classList.remove('active'); dots[cur].classList.remove('active');
-      cur = (n + slides.length) % slides.length;
-      slides[cur].classList.add('active'); dots[cur].classList.add('active');
+    // 각 슬라이드쇼 설정
+    const shows = [
+      { slides: '.spring-slide', dots: '.spring-dot', prev: '.spring-prev', next: '.spring-next' },
+      { slides: '.ssam-slide',   dots: '.ssam-dot',   prev: '.ssam-prev',   next: '.ssam-next'   },
+      { slides: '.fall-slide',   dots: '.fall-dot',   prev: '.fall-prev',   next: '.fall-next'   },
+      { slides: '.gulbi-slide',  dots: '.gulbi-dot',  prev: '.gulbi-prev',  next: '.gulbi-next'  },
+    ].map(cfg => ({
+      slides: Array.from(document.querySelectorAll(cfg.slides)),
+      dots:   Array.from(document.querySelectorAll(cfg.dots)),
+      cur: 0,
+      prev: document.querySelector(cfg.prev),
+      next: document.querySelector(cfg.next),
+    })).filter(s => s.slides.length);
+
+    function goTo(show, n) {
+      show.slides[show.cur].classList.remove('active');
+      if (show.dots[show.cur]) show.dots[show.cur].classList.remove('active');
+      show.cur = (n + show.slides.length) % show.slides.length;
+      show.slides[show.cur].classList.add('active');
+      if (show.dots[show.cur]) show.dots[show.cur].classList.add('active');
     }
-    function startAuto() { timer = setInterval(() => goTo(cur + 1), 4000); }
-    function resetAuto()  { clearInterval(timer); startAuto(); }
-    document.querySelector('.spring-next')?.addEventListener('click', () => { goTo(cur + 1); resetAuto(); });
-    document.querySelector('.spring-prev')?.addEventListener('click', () => { goTo(cur - 1); resetAuto(); });
-    dots.forEach((d, i) => d.addEventListener('click', () => { goTo(i); resetAuto(); }));
-    startAuto();
-  })();
 
-  /* ── 가을 슬라이드쇼 ─────────────────────── */
-  (function () {
-    const slides = Array.from(document.querySelectorAll('.fall-slide'));
-    const dots   = Array.from(document.querySelectorAll('.fall-dot'));
-    if (!slides.length) return;
-    let cur = 0, timer;
-    function goTo(n) {
-      slides[cur].classList.remove('active'); dots[cur].classList.remove('active');
-      cur = (n + slides.length) % slides.length;
-      slides[cur].classList.add('active'); dots[cur].classList.add('active');
+    // 마스터 타이머: 모든 슬라이드쇼 동시 전환
+    let masterTimer = setInterval(() => {
+      shows.forEach(s => goTo(s, s.cur + 1));
+    }, 4000);
+
+    function resetTimer() {
+      clearInterval(masterTimer);
+      masterTimer = setInterval(() => {
+        shows.forEach(s => goTo(s, s.cur + 1));
+      }, 4000);
     }
-    function startAuto() { timer = setInterval(() => goTo(cur + 1), 4000); }
-    function resetAuto()  { clearInterval(timer); startAuto(); }
-    document.querySelector('.fall-next')?.addEventListener('click', () => { goTo(cur + 1); resetAuto(); });
-    document.querySelector('.fall-prev')?.addEventListener('click', () => { goTo(cur - 1); resetAuto(); });
-    dots.forEach((d, i) => d.addEventListener('click', () => { goTo(i); resetAuto(); }));
-    startAuto();
-  })();
 
-  /* ── 쌈채소 슬라이드쇼 ─────────────────── */
-  (function () {
-    const slides = Array.from(document.querySelectorAll('.ssam-slide'));
-    const dots   = Array.from(document.querySelectorAll('.ssam-dot'));
-    if (!slides.length) return;
-    let cur = 0, timer;
-    function goTo(n) {
-      slides[cur].classList.remove('active');
-      dots[cur].classList.remove('active');
-      cur = (n + slides.length) % slides.length;
-      slides[cur].classList.add('active');
-      dots[cur].classList.add('active');
-    }
-    function startAuto() { timer = setInterval(() => goTo(cur + 1), 4000); }
-    function resetAuto()  { clearInterval(timer); startAuto(); }
-    document.querySelector('.ssam-next')?.addEventListener('click', () => { goTo(cur + 1); resetAuto(); });
-    document.querySelector('.ssam-prev')?.addEventListener('click', () => { goTo(cur - 1); resetAuto(); });
-    dots.forEach((d, i) => d.addEventListener('click', () => { goTo(i); resetAuto(); }));
-    startAuto();
-  })();
-
-  /* ── 굴비 슬라이드쇼 ──────────────────── */
-  (function () {
-    const slides = Array.from(document.querySelectorAll('.gulbi-slide'));
-    const dots   = Array.from(document.querySelectorAll('.gulbi-dot'));
-    if (!slides.length) return;
-    let cur = 0, timer;
-
-    function goTo(n) {
-      slides[cur].classList.remove('active');
-      dots[cur].classList.remove('active');
-      cur = (n + slides.length) % slides.length;
-      slides[cur].classList.add('active');
-      dots[cur].classList.add('active');
-    }
-    function startAuto() { timer = setInterval(() => goTo(cur + 1), 4000); }
-    function resetAuto()  { clearInterval(timer); startAuto(); }
-
-    document.querySelector('.gulbi-next')?.addEventListener('click', () => { goTo(cur + 1); resetAuto(); });
-    document.querySelector('.gulbi-prev')?.addEventListener('click', () => { goTo(cur - 1); resetAuto(); });
-    dots.forEach((d, i) => d.addEventListener('click', () => { goTo(i); resetAuto(); }));
-    startAuto();
+    // 개별 화살표/점 클릭 시 해당 슬라이드만 이동 + 타이머 리셋
+    shows.forEach(show => {
+      show.next?.addEventListener('click', () => { goTo(show, show.cur + 1); resetTimer(); });
+      show.prev?.addEventListener('click', () => { goTo(show, show.cur - 1); resetTimer(); });
+      show.dots.forEach((d, i) => d.addEventListener('click', () => { goTo(show, i); resetTimer(); }));
+    });
   })();
 
 </script>
