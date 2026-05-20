@@ -489,6 +489,12 @@
       transition: opacity 0.7s ease;
     }
     .gulbi-slide.active { opacity: 1; }
+    /* 굴비 슬라이드 이미지 - 최우선 contain 강제 */
+    .season-img-wrap.gulbi-slideshow img,
+    .gulbi-slideshow .gulbi-slide {
+      object-fit: contain !important;
+      object-position: center center !important;
+    }
     .gulbi-prev, .gulbi-next {
       position: absolute; top: 50%; transform: translateY(-50%);
       background: rgba(0,0,0,0.38);
