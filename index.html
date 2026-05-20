@@ -1339,13 +1339,11 @@
         <div class="season-img-wrap gulbi-slideshow">
           <img src="winter-gulbi.jpg" alt="용구니700 굴비" class="gulbi-slide active" />
           <img src="gulbi-2.jpg" alt="신선한 참조기" class="gulbi-slide" />
-          <img src="gulbi-3.jpg" alt="구운 굴비 상차림" class="gulbi-slide" />
           <img src="gulbi-4.jpg" alt="용구니700 굴비 소개" class="gulbi-slide" />
           <button class="gulbi-prev" aria-label="이전">&#8249;</button>
           <button class="gulbi-next" aria-label="다음">&#8250;</button>
           <div class="gulbi-dots">
             <span class="gulbi-dot active"></span>
-            <span class="gulbi-dot"></span>
             <span class="gulbi-dot"></span>
             <span class="gulbi-dot"></span>
           </div>
@@ -1862,7 +1860,7 @@
       slides[cur].classList.add('active');
       dots[cur].classList.add('active');
     }
-    function startAuto() { timer = setInterval(() => goTo(cur + 1), 3800); }
+    function startAuto() { timer = setInterval(() => goTo(cur + 1), 4000); }
     function resetAuto()  { clearInterval(timer); startAuto(); }
     document.querySelector('.ssam-next')?.addEventListener('click', () => { goTo(cur + 1); resetAuto(); });
     document.querySelector('.ssam-prev')?.addEventListener('click', () => { goTo(cur - 1); resetAuto(); });
@@ -1884,7 +1882,7 @@
       slides[cur].classList.add('active');
       dots[cur].classList.add('active');
     }
-    function startAuto() { timer = setInterval(() => goTo(cur + 1), 3800); }
+    function startAuto() { timer = setInterval(() => goTo(cur + 1), 4000); }
     function resetAuto()  { clearInterval(timer); startAuto(); }
 
     document.querySelector('.gulbi-next')?.addEventListener('click', () => { goTo(cur + 1); resetAuto(); });
