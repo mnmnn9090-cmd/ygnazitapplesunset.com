@@ -479,7 +479,7 @@
     .gulbi-slide {
       position: absolute; inset: 0;
       width: 100%; height: 100%;
-      object-fit: cover;
+      object-fit: cover !important;
       opacity: 0;
       transition: opacity 0.7s ease;
     }
@@ -1334,7 +1334,7 @@
         <div class="season-img-wrap gulbi-slideshow">
           <img src="winter-gulbi.jpg" alt="용구니700 굴비" class="gulbi-slide active" />
           <img src="gulbi-2.jpg" alt="신선한 참조기" class="gulbi-slide" />
-          <img src="gulbi-3.jpg" alt="구운 굴비 상차림" class="gulbi-slide" />
+          <img src="gulbi-3.jpg" alt="구운 굴비 상차림" class="gulbi-slide" style="object-fit:contain !important; background:var(--parchment);" />
           <img src="gulbi-4.jpg" alt="용구니700 굴비 소개" class="gulbi-slide" />
           <button class="gulbi-prev" aria-label="이전">&#8249;</button>
           <button class="gulbi-next" aria-label="다음">&#8250;</button>
@@ -1550,13 +1550,15 @@
     <div class="map-grid">
 
       <div class="map-embed">
-        <!-- 네이버 지도 embed: 용구니아지트 & 애플선셋 -->
+        <!-- Google Maps embed (모바일 호환) -->
         <iframe
-          src="https://map.naver.com/p/entry/place/1502493535?lng=128.4476184&lat=37.5688559&entry=plt"
+          src="https://maps.google.com/maps?q=37.5688559,128.4476184&hl=ko&z=16&output=embed"
           width="100%"
           height="100%"
           frameborder="0"
           allowfullscreen
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
           title="용구니아지트 위치 지도"
           style="border:none;"
         ></iframe>
@@ -1579,7 +1581,7 @@
             <span class="icon">🚗</span>
             <div>
               <strong>자동차</strong>
-              서울 → 영동고속도로 → 평창IC → 약 2시간<br>
+              영동고속도로 → 평창IC<br>
               <span style="font-size:0.8rem; color:var(--smoke);">🅿️ 주차 공간 넉넉 (무료)</span>
             </div>
           </div>
@@ -1588,8 +1590,9 @@
             <span class="icon">🚌</span>
             <div>
               <strong>대중교통</strong>
-              동서울종합터미널 → 평창행 버스 → 용평터미널 하차<br>
-              <span style="font-size:0.8rem; color:var(--smoke);">터미널에서 택시 약 15분 / 사전 연락 시 픽업 가능</span>
+              🚆 KTX 평창역 5분 거리<br>
+              🚌 장평시외버스터미널 10분 거리<br>
+              <span style="font-size:0.8rem; color:var(--rust); font-weight:700;">🚗 민박 손님 픽업 가능 (사전 연락 필수)</span>
             </div>
           </div>
 
@@ -1666,8 +1669,9 @@
             <span class="icon">🚗</span>
             <div>
               <strong>교통</strong>
-              서울에서 자동차 약 2시간 / 평창IC 이용<br>
-              <span style="color:var(--warm-tan); font-size:0.82rem;">🅿️ 주차 공간 넉넉합니다 — 무료</span>
+              🚆 KTX 평창역 5분 · 🚌 장평시외버스터미널 10분<br>
+              영동고속도로 → 평창IC<br>
+              <span style="color:var(--warm-tan); font-size:0.82rem;">🅿️ 무료 주차 &nbsp;·&nbsp; 🚗 민박 손님 픽업 가능</span>
             </div>
           </div>
           <div class="booking-item">
