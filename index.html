@@ -113,7 +113,24 @@
       font-size: 0.8rem;
       padding: 9px 16px;
       letter-spacing: 0.05em;
+      display: flex; flex-wrap: wrap; align-items: center; justify-content: center;
+      gap: 6px 14px; line-height: 1.5;
     }
+    .announcement a.order-pill {
+      display: inline-block;
+      background: var(--rust); color: var(--white);
+      padding: 4px 14px; border-radius: 999px;
+      font-weight: 700; text-decoration: none; letter-spacing: 0.02em;
+      transition: background .2s, transform .2s;
+    }
+    .announcement a.order-pill:hover { background: #b36d44; transform: translateY(-1px); }
+    .announcement .ann-tel { color: var(--parchment); text-decoration: none; opacity: .85; }
+    .season-order-btn {
+      display: inline-block; background: var(--rust); color: var(--white);
+      padding: 7px 16px; border-radius: 999px; font-size: 0.8rem; font-weight: 700;
+      text-decoration: none; transition: background .2s;
+    }
+    .season-order-btn:hover { background: #b36d44; }
 
     /* ===================== NAVIGATION ===================== */
     nav {
@@ -1151,7 +1168,9 @@
 
 <!-- ★ 공지 바 -->
 <div class="announcement">
-  🍎 2025 가을 평창사과 선착순 예약 받는 중 &nbsp;|&nbsp; 📞 문의: 010-8998-5857
+  <span>🍎 2026 가을 평창사과 주문 받는 중</span>
+  <a class="order-pill" href="https://forms.gle/ir3MhaFiNxXHXLhQ7" target="_blank" rel="noopener">주문하기 →</a>
+  <a class="ann-tel" href="tel:010-8998-5857">📞 010-8998-5857</a>
 </div>
 
 <!-- ★ 네비게이션 -->
@@ -1345,7 +1364,7 @@
             🍹 <strong style="color:var(--rust);">시그니처 음료 · 붉은노을</strong> — 평창의 노을을 담은 자몽에이드. 카페 애플선셋에서만 만날 수 있는 특별한 한 잔입니다.
           </p>
           <div class="season-footer">
-            <span class="season-price">선착순 예약 판매</span>
+            <a href="https://forms.gle/ir3MhaFiNxXHXLhQ7" target="_blank" rel="noopener" class="season-order-btn">🍎 2026 사과 주문하기</a>
             <a href="#sns" class="season-sns-link">📸 과수원 사진 보기</a>
           </div>
         </div>
@@ -1482,8 +1501,8 @@
         <div class="operating">
           운영: 봄~가을 시즌 / 기상 상황에 따라 조정<br>
           🐶 반려견 동반 환영 &nbsp;·&nbsp;
-          🎥 카페 채널:
-          <a href="#" id="cafeYoutubeLink" target="_blank" rel="noopener" style="color:var(--rust); text-decoration:underline; text-underline-offset:3px;">오픈 예정 — 곧 연결됩니다</a>
+          📸 카페 인스타그램:
+          <a href="https://www.instagram.com/applesunset_700/" id="cafeInstaLink" target="_blank" rel="noopener" style="color:var(--rust); text-decoration:underline; text-underline-offset:3px;">@applesunset_700</a>
         </div>
       </div>
 
@@ -1539,10 +1558,10 @@
 
     <div class="sns-grid">
 
-      <a href="#" target="_blank" rel="noopener" class="sns-card" title="준비 중">
+      <a href="https://www.instagram.com/applesunset_700/" target="_blank" rel="noopener" class="sns-card" title="애플선셋 인스타그램">
         <div class="sns-icon">📸</div>
         <div class="sns-label">Instagram</div>
-        <div style="font-size:0.6rem; color:var(--smoke);">준비 중</div>
+        <div style="font-size:0.6rem; color:var(--smoke);">@applesunset_700</div>
       </a>
 
       <a href="https://www.youtube.com/@alpinekorea" target="_blank" rel="noopener" class="sns-card">
@@ -1774,7 +1793,7 @@
   </div>
 
   <div class="footer-copy">
-    <span>© 2025 용구니아지트 &amp; 애플선셋. All rights reserved.</span>
+    <span>© 2026 용구니아지트 &amp; 애플선셋. All rights reserved.</span>
     <span>
       📞 <a href="tel:010-8998-5857">010-8998-5857</a>
       &nbsp;·&nbsp;
